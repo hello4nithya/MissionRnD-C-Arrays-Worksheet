@@ -12,8 +12,44 @@ NOTES:
 */
 
 #include <stdio.h>
+void swap(int *x, int *y)
+{
+	int temp;
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
+void bubble_sort(int arr[], int size){
+
+	int swapped = 1, index = 0;
+
+	while (swapped == 1){
+
+		swapped = 0;
+
+		for (index = 1; index < size; index++){
+
+			if (arr[index] < arr[index - 1]){
+				swap(&arr[index], &arr[index - 1]);
+
+				swapped = 1;
+			}
+
+		}
+
+	}
+
+}
 
 void * sortedArrayPositionsChange(int *Arr, int len)
 {
-	return NULL;
+	if (Arr == NULL && len == 1){
+		return NULL;
+	}
+	else if (len < 0){
+		return NULL;
+	}
+	else{
+		bubble_sort(Arr, len);
+	}
 }
