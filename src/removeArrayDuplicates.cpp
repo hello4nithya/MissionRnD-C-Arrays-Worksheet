@@ -12,8 +12,61 @@ NOTES: Don't create new array, try to change the input array.
 */
 
 #include <stdio.h>
+/*void swap(int *x, int *y)
+{
+	int temp;
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
+void bubble_sort(int *arr, int size){
 
+	int swapped = 1, index = 0;
+
+	while (swapped == 1){
+
+		swapped = 0;
+
+		for (index = 1; index < size; index++){
+
+			if (arr[index] < arr[index - 1]){
+				swap(&arr[index], &arr[index - 1]);
+
+				swapped = 1;
+			}
+
+		}
+
+	}
+
+}
+*/
 void * removeArrayDuplicates(int *Arr, int len)
 {
-	return NULL;
+	int i, j, k;
+	if (Arr == NULL && len == 1){
+		return NULL;
+	}
+	else if (len < 0){
+		return NULL;
+	}
+	else{
+		//bubble_sort(Arr, len);
+		for (i = 0; i < len; i++)
+		{
+			for (j = i + 1; j < len;) {
+				if (Arr[j] == Arr[i]) {
+					for (k = j; k < len; k++) {
+						Arr[k] = Arr[k + 1];
+					}
+					len--;
+				}
+				else {
+					j++;
+				}
+			}
+
+		}
+
+	}
 }
